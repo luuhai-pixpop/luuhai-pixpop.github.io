@@ -6,7 +6,7 @@
 h1,h2{color:#b45f1d}hr{margin:32px 0}.nen{background:#fdf3e7;border-left:4px solid #b45f1d;padding:8px 12px}</style></head><body>
 
 <h1>Chính sách quyền riêng tư — Straw Fire</h1>
-<p><i>Cập nhật: 02/11/2026 · Nhà phát triển: PixPop (Nguyễn Lưu Hồng Hải)</i></p>
+<p><i>Cập nhật: 07/11/2026 · Nhà phát triển: PixPop (Nguyễn Lưu Hồng Hải)</i></p>
 <p class="nen">Áp dụng cho <b>bản Android (Google Play)</b> và <b>bản iOS (App Store)</b>. Chỗ nào chỉ đúng với một nền tảng sẽ ghi rõ «Android» hoặc «iOS».</p>
 
 <h2>1. Dữ liệu chúng tôi thu thập</h2>
@@ -31,12 +31,21 @@ Cài đặt &gt; Quyền riêng tư &amp; Bảo mật &gt; Theo dõi.</li>
 <p><b>Android</b> (từ bản 4.2): trò chơi dùng <b>Google Analytics for Firebase</b> để đếm số người chơi và cách trò chơi được dùng.
 Dịch vụ này tự thu: mã cài đặt ứng dụng (app-instance ID), mã quảng cáo (Advertising ID), vị trí ước chừng suy ra
 từ địa chỉ IP, các sự kiện sử dụng (mở ứng dụng, phiên chơi, màn hình) và giao dịch mua trong ứng dụng do Google Play xử lý.
-Trò chơi <b>không gửi sự kiện tự đặt nào</b>; trò chơi chỉ ghi thêm <b>một thuộc tính: nguồn cài đặt</b> (tên cửa hàng
-đã cài trò chơi, ví dụ Google Play) để đếm số bản cài ngoài Google Play. Trò chơi không gửi tên, email hay thông tin
+Trò chơi <b>không gửi sự kiện tự đặt nào</b>; trò chơi chỉ ghi thêm <b>ba thuộc tính kỹ thuật: nguồn cài đặt</b> (tên cửa hàng
+đã cài trò chơi, ví dụ Google Play), <b>kết quả kiểm tra chữ ký</b> và <b>trạng thái chế độ thử nghiệm</b> để đếm số bản cài ngoài Google Play. Trò chơi không gửi tên, email hay thông tin
 cá nhân khác. Dữ liệu được mã hoá khi truyền.
 Ở EEA, Vương quốc Anh và Thuỵ Sĩ, thống kê chỉ bật khi bạn đồng ý trong bảng xin đồng ý (mục 3). Xem
 <a href="https://support.google.com/analytics/answer/11582702">dữ liệu Google Analytics thu thập</a>.</p>
 <p><b>iOS:</b> hiện <b>chưa dùng</b> Firebase. Trang này sẽ được cập nhật trước khi bản iOS dùng dịch vụ thống kê.</p>
+
+<h2>2b. Bảo vệ bản cài và cấu hình từ xa (Firebase Remote Config)</h2>
+<p><b>Android</b> (từ bản 4.6): để chống bản chép lậu, trò chơi kiểm tra trên máy (không gửi đi) xem trò chơi có được cài từ
+Google Play và có đúng chữ ký của nhà phát triển không. Trò chơi dùng <b>Firebase Remote Config</b> để nhận các công tắc kỹ thuật
+(tạm ngưng quảng cáo hoặc ngừng hỗ trợ một phiên bản). Dịch vụ này tự thu: mã cài đặt Firebase (không định danh người dùng hay
+thiết bị), mã nước, ngôn ngữ, múi giờ, phiên bản hệ điều hành và SDK. Trò chơi gửi kèm ba giá trị kỹ thuật: nguồn cài đặt
+(tên cửa hàng), kết quả kiểm tra chữ ký (đúng / sai / lỗi) và trạng thái chế độ thử nghiệm của nhà phát triển. Không gửi tên,
+email hay thông tin cá nhân. Dữ liệu được mã hoá khi truyền. Xem
+<a href="https://firebase.google.com/docs/android/play-data-disclosure">dữ liệu Firebase thu thập</a>.</p>
 
 <h2>3. Sự đồng ý ở Châu Âu, Vương quốc Anh và Thuỵ Sĩ</h2>
 <p>Nếu bạn ở Khu vực kinh tế Châu Âu (EEA), Vương quốc Anh hoặc Thuỵ Sĩ, trò chơi hiển thị một bảng
@@ -64,7 +73,7 @@ Email: <b>nguyenluuhonghai@gmail.com</b><br>
 <hr>
 
 <h1>Privacy Policy — Straw Fire (English)</h1>
-<p><i>Last updated: November 2, 2026 · Developer: PixPop (Nguyen Luu Hong Hai)</i></p>
+<p><i>Last updated: November 7, 2026 · Developer: PixPop (Nguyen Luu Hong Hai)</i></p>
 <p class="nen">This policy covers the <b>Android version (Google Play)</b> and the <b>iOS version (App Store)</b>. Anything that applies to only one platform is marked «Android» or «iOS».</p>
 
 <h2>1. Data we collect</h2>
@@ -89,12 +98,21 @@ Settings &gt; Privacy &amp; Security &gt; Tracking.</li>
 <p><b>Android</b> (from version 4.2): the game uses <b>Google Analytics for Firebase</b> to count players and understand how the game is used.
 It automatically collects an app-instance ID, the Advertising ID, approximate location derived from the IP address,
 usage events (app open, sessions, screens) and in-app purchases processed by Google Play.
-The game sends <b>no custom events</b>; it only sets <b>one property: the install source</b> (the name of the store
-the game was installed from, e.g. Google Play) to count installs from outside Google Play. The game sends no name,
+The game sends <b>no custom events</b>; it only sets <b>three technical properties: the install source</b> (the name of the store
+the game was installed from, e.g. Google Play), <b>the signature check result</b> and <b>the test-mode status</b> to count installs from outside Google Play. The game sends no name,
 email or other personal information. Data is encrypted in transit.
 In the EEA, the UK and Switzerland, statistics are enabled only if you consent in the consent message (section 3). See
 <a href="https://support.google.com/analytics/answer/11582702">what Google Analytics collects</a>.</p>
 <p><b>iOS:</b> Firebase is <b>not used</b> at this time. This page will be updated before the iOS version uses any analytics service.</p>
+
+<h2>2b. Install protection and remote configuration (Firebase Remote Config)</h2>
+<p><b>Android</b> (from version 4.6): to block pirated copies, the game checks on the device (nothing is sent) whether it was
+installed from Google Play and carries the developer's signature. The game uses <b>Firebase Remote Config</b> to receive technical
+switches (pausing ads or ending support for a version). This service automatically collects a Firebase installation ID (which
+does not identify a user or device), country code, language, time zone, and OS and SDK versions. The game also sends three
+technical values: the install source (store name), the signature check result (valid / invalid / error) and whether the
+developer's test mode is on. No name, email or other personal information is sent. Data is encrypted in transit. See
+<a href="https://firebase.google.com/docs/android/play-data-disclosure">what Firebase collects</a>.</p>
 
 <h2>3. Consent in the EEA, the UK and Switzerland</h2>
 <p>If you are in the European Economic Area, the United Kingdom or Switzerland, the game shows a consent
